@@ -1,13 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const data = [
+    {
+        id: 512,
+        name: "Neil Rhodes",
+        email: "rhodes@hmc.edu",
+        phone: "(909) 555-1212"
+    },
+    {
+        id: 787,
+        name: "Barack Obama",
+        email: "ex-prez@whitehouse.gov",
+        phone: "(312) 555-1212"
+    }
+];
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <div>
+      <h1>People</h1>
+          <table>
+              <tbody>
+              {data.map(item => <tr key={item.id}><td className={'name'}>{item.name}</td>
+                  <td>{item.email}</td>
+                  <td>{item.phone}</td></tr>)}
+              </tbody>
+          </table>
+  </div>,
   document.getElementById('root')
 );
 
