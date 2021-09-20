@@ -19,3 +19,7 @@ td {
 .name {
   font-weight: bold;
 }
+
+.email {
+  font-family: monospace;
+}

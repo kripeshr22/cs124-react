@@ -18,20 +18,28 @@ const data = [
     }
 ];
 
-ReactDOM.render(
-  <div>
-      <h1>People</h1>
-          <table>
-              <tbody>
-              {data.map(item => <tr key={item.id}><td className={'name'}>{item.name}</td>
-                  <td>{item.email}</td>
-                  <td>{item.phone}</td></tr>)}
-              </tbody>
-          </table>
-  </div>,
-  document.getElementById('root')
-);
+function render() {
+    ReactDOM.render(
+        <div>
+            <h1>People</h1>
+            <table>
+                <tbody>
+                {data.map(item => <tr key={item.id}>
+                    <td className={'name'}>{item.name}</td>
+                    <td className={'email'}>{item.email}</td>
+                    <td className={'phone'}>{item.phone}</td>
+                </tr>)}
+                </tbody>
+            </table>
+        </div>,
+        document.getElementById('root')
+    );
+}
 
+setInterval(() => {
+    render();
+    data.splice(data.length - 1, 1);
+}, 1000);
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
